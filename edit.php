@@ -1,39 +1,65 @@
 <?php
-    include "header.php";
-    include "clases/Crud.php";
-    $crud = new Crud();
-    $contacto = $crud->show($_GET["id"]);
+    include "header.php"; 
+    include "clases/Crud.php"; 
+    $crud = new Crud(); 
+    $contacto = $crud->show($_GET["id"]); 
 ?>
-    <h1>Actualizar contacto</h1>
-    <form action="servidor/update.php" method="post">
-        <input type="text" name="id" 
-        value="<?php echo $contacto['id']; ?>" 
-        hidden>
 
-        <label for="paterno">Apellido paterno</label>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-pink">
+                <div class="card-header text-center" style="background: linear-gradient(45deg, #ff66b2, #ff3399); color: white;">
+                    <h2>Actualizar Contacto</h2>
+                </div>
+                <div class="card-body">
+                    <form action="servidor/update.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<?php echo $contacto['id']; ?>">
 
-        <input type="text" name="paterno" id="paterno" 
-        value="<?php echo $contacto['paterno']; ?>">
+                        <div class="mb-3">
+                            <label for="paterno" class="form-label">Apellido Paterno</label>
+                            <input type="text" class="form-control border-pink" id="paterno" name="paterno" value="<?php echo $contacto['paterno']; ?>" required>
+                        </div>
 
-        <label for="materno">Apellido Materno</label>
-        <input type="text" name="materno" id="materno"
-        value="<?php echo $contacto['materno']; ?>">
-        <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" id="nombre"
-        value="<?php echo $contacto['nombre']; ?>">
-        <label for="telefono">Telefono</label>
-        <input type="text" name="telefono" id="telefono"
-        value="<?php echo $contacto['telefono']; ?>">
-        <label for="correo">Correo</label>
-        <input type="text" name="correo" id="correo"
-        value="<?php echo $contacto['email']; ?>">
-        <label for="descripcion">Descripcion</label>
-        <input type="text" name="descripcion" id="descripcion"
-        value="<?php echo $contacto['descripcion']; ?>">
-        <label for="">Agrega una foto</label>
-        <input type="file" name="foto" id="foto">
-        <button>Actualizar</button>
-    </form>
+                        <div class="mb-3">
+                            <label for="materno" class="form-label">Apellido Materno</label>
+                            <input type="text" class="form-control border-pink" id="materno" name="materno" value="<?php echo $contacto['materno']; ?>" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control border-pink" id="nombre" name="nombre" value="<?php echo $contacto['nombre']; ?>" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="text" class="form-control border-pink" id="telefono" name="telefono" value="<?php echo $contacto['telefono']; ?>" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="correo" class="form-label">Correo</label>
+                            <input type="email" class="form-control border-pink" id="correo" name="correo" value="<?php echo $contacto['email']; ?>" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Descripción</label>
+                            <input type="text" class="form-control border-pink" id="descripcion" name="descripcion" value="<?php echo $contacto['descripcion']; ?>">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="foto" class="form-label">Agrega una foto</label>
+                            <input type="file" class="form-control border-pink" id="foto" name="foto">
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-pink btn-lg">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php 
     include "footer.php";

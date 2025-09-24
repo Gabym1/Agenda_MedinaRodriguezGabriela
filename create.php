@@ -1,11 +1,13 @@
 <?php
-    include "header.php";
+    include "header.php"; // Incluimos lo que contenga header
+    # Este archivo contiene lo necesario para poder crear un nuevo contacto obtenemos la informacion por medio de un form y definimos
+    # que ese form mandará los datos a store que se encuentra en la carpeta servidor esto utilizando el metodo post
 ?>
 
    <div class="container">
     <div class="row">
         <div class="col">
-             <h1>Crear nuevo contacto</h1>
+             <h1>Crear nuevo contacto </h1>
             <form action="servidor/store.php" method="post" 
             enctype="multipart/form-data">
                 <label for="paterno">Apellido paterno</label>
